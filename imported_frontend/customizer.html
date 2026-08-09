@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ID Forge - Create Card</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Guidelines -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-dim": "#d8dadc",
+                "inverse-primary": "#bec6e0",
+                "inverse-surface": "#2d3133",
+                "surface-container-low": "#f2f4f6",
+                "surface-bright": "#f7f9fb",
+                "surface-container-highest": "#e0e3e5",
+                "tertiary-container": "#0b1c30",
+                "outline-variant": "#c6c6cd",
+                "outline": "#76777d",
+                "surface": "#f7f9fb",
+                "on-primary-fixed": "#131b2e",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "primary": "#000000",
+                "on-error": "#ffffff",
+                "tertiary": "#000000",
+                "on-surface-variant": "#45464d",
+                "primary-fixed": "#dae2fd",
+                "secondary-fixed": "#dbe1ff",
+                "secondary": "#0051d5",
+                "surface-tint": "#565e74",
+                "on-primary-fixed-variant": "#3f465c",
+                "on-surface": "#191c1e",
+                "on-primary": "#ffffff",
+                "on-background": "#191c1e",
+                "on-tertiary-fixed-variant": "#38485d",
+                "background": "#f7f9fb",
+                "surface-container": "#eceef0",
+                "secondary-fixed-dim": "#b4c5ff",
+                "tertiary-fixed": "#d3e4fe",
+                "on-tertiary-fixed": "#0b1c30",
+                "on-secondary": "#ffffff",
+                "surface-variant": "#e0e3e5",
+                "on-secondary-fixed-variant": "#003ea8",
+                "on-error-container": "#93000a",
+                "error-container": "#ffdad6",
+                "inverse-on-surface": "#eff1f3",
+                "secondary-container": "#316bf3",
+                "surface-container-high": "#e6e8ea",
+                "on-tertiary-container": "#75859d",
+                "on-primary-container": "#7c839b",
+                "primary-fixed-dim": "#bec6e0",
+                "on-secondary-container": "#fefcff",
+                "primary-container": "#131b2e",
+                "on-secondary-fixed": "#00174b",
+                "tertiary-fixed-dim": "#b7c8e1",
+                "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "base": "4px",
+                "md": "24px",
+                "margin-desktop": "48px",
+                "lg": "40px",
+                "xl": "64px",
+                "gutter": "24px",
+                "sm": "16px",
+                "margin-mobile": "16px",
+                "xs": "8px"
+            },
+            "fontFamily": {
+                "headline-sm": ["Hanken Grotesk"],
+                "headline-md": ["Hanken Grotesk"],
+                "display-lg": ["Hanken Grotesk"],
+                "label-md": ["JetBrains Mono"],
+                "body-md": ["Inter"],
+                "headline-lg": ["Hanken Grotesk"],
+                "body-sm": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Skeleton Animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .skeleton {
+            background: #f6f7f8;
+            background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite linear forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-full font-body-md flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface text-primary font-headline-md text-headline-md docked full-width top-0 border-b border-outline-variant flat no shadows flex justify-between items-center px-margin-mobile w-full h-16 shrink-0 z-40 relative">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="fingerprint" data-weight="fill">fingerprint</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">ID Forge</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-100 flex items-center justify-center w-10 h-10">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant flex items-center justify-center">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A small, professional headshot photo of an enterprise administrator in a corporate setting. Clean lighting, neutral background, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADC1w57rbteYkleGwi79VIMyk5Z6Ksol1BNKQbsFZEI2Ten0SWiabNF4moJhcL6lBud0A1_E1xKoVdlWLJRiIw6vdY1FcuN-rH6h6s0n_13g_-6f_RZg26GHKDDSTMChdZ_x3xIr94lArZM42qiGj73Xqdod7iIthxzzh3Zvyx9RfpNvTtltKOdRpL7haOvvf3WmvASPBjPaX_rWb2BVBrF3SlU5tUFBRGAHu8dE1eRwd9Sdm6ENg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Layout (Fixed-Fluid Hybrid) -->
+<main class="flex-1 flex flex-col md:flex-row overflow-hidden pb-20 md:pb-0">
+<!-- Live Preview Area (Fluid Canvas) -->
+<section class="flex-1 bg-surface-container-low flex flex-col items-center justify-center p-sm md:p-margin-desktop overflow-y-auto min-h-[442px] md:min-h-0 relative">
+<!-- Contextual Toolbar -->
+<div class="absolute top-sm left-sm right-sm flex justify-between items-center pointer-events-none z-10">
+<div class="bg-surface px-sm py-xs rounded-full border border-outline-variant flex items-center gap-xs shadow-[0_4px_12px_rgba(15,23,42,0.05)] pointer-events-auto">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="visibility">visibility</span>
+<span class="font-label-md text-label-md text-on-surface">Live Preview</span>
+</div>
+<div class="bg-surface rounded-full border border-outline-variant shadow-[0_4px_12px_rgba(15,23,42,0.05)] p-1 flex gap-1 pointer-events-auto">
+<button class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md transition-colors" id="btn-front">Front</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md transition-colors" id="btn-back">Back</button>
+</div>
+</div>
+<!-- Card Container (1:1 Safe Container, Level 2) -->
+<div class="relative w-full max-w-[400px] aspect-[1/1.5] mt-12 md:mt-0 shadow-[0_4px_12px_rgba(15,23,42,0.05)] bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden transition-all duration-300 transform" id="card-preview">
+<!-- Watermark / Verification Overlay -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-5 z-20 overflow-hidden">
+<span class="font-display-lg text-display-lg font-bold text-outline rotate-[-45deg] whitespace-nowrap tracking-widest uppercase block">Draft Mode Draft Mode</span>
+</div>
+<!-- ID Card Front Template -->
+<div class="absolute inset-0 p-md flex flex-col h-full z-10 bg-surface-container-lowest" id="card-front">
+<!-- Header -->
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[18px]" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight" id="preview-company">Acme Corp</span>
+</div>
+<div class="px-2 py-1 bg-[#dbe1ff] rounded font-label-sm text-label-sm text-[#00174b] uppercase tracking-wider border border-[#b4c5ff]">
+                            Employee
+                        </div>
+</div>
+<!-- Photo -->
+<div class="flex-1 flex justify-center items-center mb-md">
+<div class="w-32 h-40 bg-surface-container-highest border border-outline-variant rounded-lg overflow-hidden relative">
+<img alt="Employee Photo" class="w-full h-full object-cover hidden" data-alt="A highly professional corporate headshot of a business executive against a stark white background. High contrast, sharp focus, corporate modern lighting, suitable for an official ID card." id="preview-photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARTBX0FjSrqnA4BGaK0OhbyAnwQygqAMheOsOZP086MKLtGudRiyxezxaLUdzXnbqKok5BZT4kMcGFzwHpcHreDwxijWPnWCLjbO7qsnH-A7HqvLfBiZvVQjRzulLh-_UkbBI9Xg8NkmMSTJhbLt5fwilwwvR9RL-JsY7ZmKnd6Y2zfTv3TpseXAwEcQ7Brdz_7W6emWXKQMvCIhd7cGhNkku0FF-cIHXRNUrX6l0j09pYkeJmaxc"/>
+<div class="absolute inset-0 flex items-center justify-center text-outline" id="preview-photo-placeholder">
+<span class="material-symbols-outlined text-[32px]" data-icon="person">person</span>
+</div>
+</div>
+</div>
+<!-- Details -->
+<div class="text-center flex flex-col items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1" id="preview-name">First Lastname</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4" id="preview-title">Job Title</p>
+<div class="w-3/4 h-12 bg-surface-container-high rounded border border-outline-variant flex items-center justify-center px-4 relative overflow-hidden">
+<!-- Fake Barcode -->
+<div class="w-full h-8 flex justify-between items-center opacity-60">
+<div class="w-[2px] h-full bg-on-surface"></div><div class="w-[1px] h-full bg-on-surface"></div><div class="w-[3px] h-full bg-on-surface"></div><div class="w-[1px] h-full bg-on-surface"></div><div class="w-[4px] h-full bg-on-surface"></div><div class="w-[2px] h-full bg-on-surface"></div><div class="w-[1px] h-full bg-on-surface"></div><div class="w-[2px] h-full bg-on-surface"></div><div class="w-[3px] h-full bg-on-surface"></div><div class="w-[1px] h-full bg-on-surface"></div><div class="w-[4px] h-full bg-on-surface"></div><div class="w-[1px] h-full bg-on-surface"></div><div class="w-[2px] h-full bg-on-surface"></div><div class="w-[3px] h-full bg-on-surface"></div><div class="w-[1px] h-full bg-on-surface"></div><div class="w-[2px] h-full bg-on-surface"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Configuration Panel (Fixed Sidebar, Level 1) -->
+<aside class="w-full md:w-[320px] lg:w-[380px] bg-surface-container-lowest border-l border-outline-variant flex flex-col h-full shrink-0 z-20">
+<!-- Progress Stepper -->
+<div class="px-sm py-4 border-b border-outline-variant bg-surface-bright shrink-0">
+<div class="flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2px] bg-surface-container-highest z-0"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1/2 h-[2px] bg-primary z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-1">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">Template</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm border-2 border-surface-container-lowest">
+                            2
+                        </div>
+<span class="font-label-sm text-label-sm text-primary">Details</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-1">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-label-sm text-label-sm border-2 border-surface-container-lowest">
+                            3
+                        </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Review</span>
+</div>
+</div>
+</div>
+<!-- Form Content -->
+<div class="flex-1 overflow-y-auto p-sm flex flex-col gap-sm">
+<h1 class="font-headline-sm text-headline-sm text-on-surface mb-2">Card Details</h1>
+<!-- Inputs -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="input-name">Full Name</label>
+<input class="w-full bg-[#F1F5F9] border border-outline-variant rounded focus:bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors px-3 py-2 font-body-md text-body-md text-on-surface placeholder:text-outline" id="input-name" placeholder="First Lastname" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="input-title">Job Title</label>
+<input class="w-full bg-[#F1F5F9] border border-outline-variant rounded focus:bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors px-3 py-2 font-body-md text-body-md text-on-surface placeholder:text-outline" id="input-title" placeholder="e.g. Security Analyst" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="input-company">Company / Department</label>
+<input class="w-full bg-[#F1F5F9] border border-outline-variant rounded focus:bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors px-3 py-2 font-body-md text-body-md text-on-surface placeholder:text-outline" id="input-company" placeholder="Acme Corp" type="text"/>
+</div>
+<!-- Photo Upload Box -->
+<div class="mt-2">
+<label class="font-label-md text-label-md text-on-surface-variant mb-xs block">Profile Photo</label>
+<div class="w-full border-2 border-dashed border-outline-variant rounded-lg p-md flex flex-col items-center justify-center bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center mb-2 group-hover:bg-[#dbe1ff] transition-colors text-on-surface-variant group-hover:text-secondary">
+<span class="material-symbols-outlined" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface text-center font-medium">Click to upload or drag and drop</span>
+<span class="font-label-sm text-label-sm text-outline text-center mt-1">PNG, JPG up to 5MB (1:1 aspect ratio recommended)</span>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="p-sm border-t border-outline-variant bg-surface-bright shrink-0 flex gap-xs">
+<button class="flex-1 bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md py-3 rounded hover:bg-surface-container transition-colors flex items-center justify-center">
+                    Save Draft
+                </button>
+<button class="flex-[2] bg-primary text-on-primary font-label-md text-label-md py-3 rounded hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                    Generate
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</aside>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-2 bg-surface border-t border-outline-variant flat no shadows md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="style">style</span>
+<span class="font-label-sm text-label-sm">Templates</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 hover:bg-surface-container-high transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="badge" data-weight="fill">badge</span>
+<span class="font-label-sm text-label-sm">My Cards</span>
+</button>
+</nav>
+<!-- Simple interaction script for preview -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nameInput = document.getElementById('input-name');
+            const titleInput = document.getElementById('input-title');
+            const companyInput = document.getElementById('input-company');
+            
+            const prevName = document.getElementById('preview-name');
+            const prevTitle = document.getElementById('preview-title');
+            const prevCompany = document.getElementById('preview-company');
+
+            // Live updates
+            nameInput.addEventListener('input', (e) => {
+                prevName.textContent = e.target.value || 'First Lastname';
+            });
+            titleInput.addEventListener('input', (e) => {
+                prevTitle.textContent = e.target.value || 'Job Title';
+            });
+            companyInput.addEventListener('input', (e) => {
+                prevCompany.textContent = e.target.value || 'Acme Corp';
+            });
+
+            // Fake Front/Back toggle (just visually scales slightly to indicate interaction)
+            const btnFront = document.getElementById('btn-front');
+            const btnBack = document.getElementById('btn-back');
+            const card = document.getElementById('card-preview');
+
+            btnFront.addEventListener('click', () => {
+                btnFront.classList.replace('text-on-surface-variant', 'bg-secondary-container');
+                btnFront.classList.add('text-on-secondary-container');
+                
+                btnBack.classList.replace('bg-secondary-container', 'text-on-surface-variant');
+                btnBack.classList.remove('text-on-secondary-container');
+                
+                card.style.transform = 'scale(1)';
+            });
+
+            btnBack.addEventListener('click', () => {
+                btnBack.classList.replace('text-on-surface-variant', 'bg-secondary-container');
+                btnBack.classList.add('text-on-secondary-container');
+                
+                btnFront.classList.replace('bg-secondary-container', 'text-on-surface-variant');
+                btnFront.classList.remove('text-on-secondary-container');
+                
+                card.style.transform = 'scale(0.95)';
+                // In a real app, this would swap the DOM content of the card
+            });
+        });
+    </script>
+
+<!-- Client-side navigation script injected by Antigravity -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Stitch client-side router loaded.");
+
+  // Map header and navigation clicks dynamically based on text or icon attributes
+  document.querySelectorAll("button, a").forEach(el => {
+    const text = el.textContent.trim().toLowerCase();
+    
+    // Navigation based on inner text
+    if (text === "home" || text === "dashboard") {
+      el.addEventListener("click", (e) => { 
+        e.preventDefault(); 
+        window.location.href = "index.html"; 
+      });
+    } else if (text === "templates") {
+      el.addEventListener("click", (e) => { 
+        e.preventDefault(); 
+        window.location.href = "templates.html"; 
+      });
+    } else if (text === "my cards") {
+      el.addEventListener("click", (e) => { 
+        e.preventDefault(); 
+        window.location.href = "my-cards.html"; 
+      });
+    } else if (text.includes("create new card") || text.includes("use template")) {
+      el.addEventListener("click", (e) => { 
+        e.preventDefault(); 
+        window.location.href = "create.html"; 
+      });
+    } else if (text.includes("next") || text.includes("continue") || text.includes("customize")) {
+      el.addEventListener("click", (e) => { 
+        e.preventDefault(); 
+        window.location.href = "customizer.html"; 
+      });
+    } else if (text.includes("generate") || text.includes("issue") || text.includes("save")) {
+      el.addEventListener("click", (e) => { 
+        e.preventDefault(); 
+        window.location.href = "builder-id.html"; 
+      });
+    }
+
+    // Navigation based on icons
+    const icon = el.querySelector("[data-icon]");
+    if (icon) {
+      const iconName = icon.getAttribute("data-icon");
+      if (iconName === "home") {
+        el.addEventListener("click", (e) => { 
+          e.preventDefault(); 
+          window.location.href = "index.html"; 
+        });
+      } else if (iconName === "style") {
+        el.addEventListener("click", (e) => { 
+          e.preventDefault(); 
+          window.location.href = "templates.html"; 
+        });
+      } else if (iconName === "badge") {
+        el.addEventListener("click", (e) => { 
+          e.preventDefault(); 
+          window.location.href = "my-cards.html"; 
+        });
+      }
+    }
+  });
+});
+</script>
+
+</body></html>
