@@ -220,38 +220,19 @@ export default function CanvasPreview({
 
     const caption = `Just minted my official HH Goa 2026 Builder ID Pass! Ready to lock in and ship in paradise. 🌊🌴\n\nGenerate yours at hhgoa.com! #FrameInGoa #HackerHouseGoa`;
 
+    // 1. Copy pass PNG image directly to clipboard for instant Ctrl+V attachment on X
     try {
-      // 1. Convert canvas pass to Blob & File
       const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
-      if (blob) {
-        const file = new File([blob], `hh-goa-2026-pass-${(name || 'builder').toLowerCase().replace(/\s+/g, '-')}.png`, { type: 'image/png' });
-
-        // 2. Mobile/Native Web Share with attached Image File
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            title: 'HH Goa 2026 Builder Pass',
-            text: caption,
-            files: [file],
-          });
-          return;
-        }
-
-        // 3. Desktop Fallback: Copy ID Pass Image directly to Clipboard for instant Ctrl+V pasting into Twitter
-        if (navigator.clipboard && window.ClipboardItem) {
-          try {
-            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-            setShareToast('Pass image copied to clipboard! Paste (Ctrl+V) into your tweet.');
-            setTimeout(() => setShareToast(''), 4500);
-          } catch (clipErr) {
-            console.log('Clipboard image write skipped:', clipErr);
-          }
-        }
+      if (blob && navigator.clipboard && window.ClipboardItem) {
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+        setShareToast('Pass image copied to clipboard! Press Ctrl+V to attach it in X.');
+        setTimeout(() => setShareToast(''), 5000);
       }
     } catch (err) {
-      console.log('Error preparing share image:', err);
+      console.log('Clipboard copy skipped:', err);
     }
 
-    // 4. Open Twitter / X Tweet composer
+    // 2. Directly open x.com tweet composer in new tab with caption & hashtags
     const xUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(caption)}`;
     window.open(xUrl, '_blank', 'noopener,noreferrer');
   };
