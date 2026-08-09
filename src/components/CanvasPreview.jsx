@@ -218,21 +218,36 @@ export default function CanvasPreview({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const filename = `hh-goa-2026-pass-${(name || 'builder').toLowerCase().replace(/\s+/g, '-')}.png`;
     const caption = `Just minted my official HH Goa 2026 Builder ID Pass! Ready to lock in and ship in paradise. 🌊🌴\n\nGenerate yours at hhgoa.com! #FrameInGoa #HackerHouseGoa`;
 
-    // 1. Copy pass PNG image directly to Clipboard for instant Ctrl+V pasting on X
     try {
       const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
-      if (blob && navigator.clipboard && window.ClipboardItem) {
-        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-        setShareToast('Pass image copied to clipboard! Just press Ctrl+V to attach on X.');
-        setTimeout(() => setShareToast(''), 5000);
+      if (blob) {
+        const file = new File([blob], filename, { type: 'image/png' });
+
+        // 1. Mobile Browsers: Passes the PNG image file directly into mobile share / X app!
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: 'HH Goa 2026 Builder Pass',
+            text: caption,
+            files: [file],
+          });
+          return;
+        }
+
+        // 2. Desktop Browsers: Copies PNG image directly to Clipboard for instant Ctrl+V pasting on X
+        if (navigator.clipboard && window.ClipboardItem) {
+          await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+          setShareToast('Pass image copied to clipboard! Just press Ctrl+V on X.');
+          setTimeout(() => setShareToast(''), 5000);
+        }
       }
     } catch (err) {
-      console.log('Clipboard copy skipped:', err);
+      console.log('Share handling error:', err);
     }
 
-    // 2. Open x.com tweet composer in new tab with caption & hashtags
+    // 3. Desktop: Open x.com tweet composer in new tab with prefilled caption & hashtags
     const xUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(caption)}`;
     window.open(xUrl, '_blank', 'noopener,noreferrer');
   };
