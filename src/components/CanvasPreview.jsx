@@ -212,8 +212,46 @@ export default function CanvasPreview({
     link.click();
   };
 
-  const handleShareToX = () => {
+  const [shareToast, setShareToast] = useState('');
+
+  const handleShareToX = async () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
     const caption = `Just minted my official HH Goa 2026 Builder ID Pass! Ready to lock in and ship in paradise. 🌊🌴\n\nGenerate yours at hhgoa.com! #FrameInGoa #HackerHouseGoa`;
+
+    try {
+      // 1. Convert canvas pass to Blob & File
+      const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+      if (blob) {
+        const file = new File([blob], `hh-goa-2026-pass-${(name || 'builder').toLowerCase().replace(/\s+/g, '-')}.png`, { type: 'image/png' });
+
+        // 2. Mobile/Native Web Share with attached Image File
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: 'HH Goa 2026 Builder Pass',
+            text: caption,
+            files: [file],
+          });
+          return;
+        }
+
+        // 3. Desktop Fallback: Copy ID Pass Image directly to Clipboard for instant Ctrl+V pasting into Twitter
+        if (navigator.clipboard && window.ClipboardItem) {
+          try {
+            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+            setShareToast('Pass image copied to clipboard! Paste (Ctrl+V) into your tweet.');
+            setTimeout(() => setShareToast(''), 4500);
+          } catch (clipErr) {
+            console.log('Clipboard image write skipped:', clipErr);
+          }
+        }
+      }
+    } catch (err) {
+      console.log('Error preparing share image:', err);
+    }
+
+    // 4. Open Twitter / X Tweet composer
     const xUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(caption)}`;
     window.open(xUrl, '_blank', 'noopener,noreferrer');
   };
@@ -267,6 +305,12 @@ export default function CanvasPreview({
             <Share2 className="w-3.5 h-3.5 text-[#fd267a]" />
             Share to X
           </button>
+
+          {shareToast && (
+            <div className="w-full p-2.5 bg-[#062f20] border border-[#f5e025]/40 rounded text-center text-[11px] font-mono text-[#f5e025] animate-pulse shadow-md">
+              {shareToast}
+            </div>
+          )}
         </div>
       )}
     </div>

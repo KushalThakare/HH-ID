@@ -77,8 +77,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#032116] text-[#f4f0e6] flex flex-col font-sans selection:bg-[#f5e025] selection:text-[#032116] relative z-10">
-      {/* App Header */}
-      <header className="sticky top-0 z-40 bg-[#032116]/95 backdrop-blur-md border-b border-[#134d36] px-6 py-4 flex justify-between items-center max-w-7xl w-full mx-auto">
+      {/* App Header (Full 100% Horizontal Span) */}
+      <header className="sticky top-0 z-40 bg-[#032116]/95 backdrop-blur-md border-b border-[#134d36] px-6 md:px-12 py-4 flex justify-between items-center w-full">
         <div className="flex items-center gap-3">
           <div className="font-mono font-extrabold text-lg text-[#f5e025] tracking-tighter leading-none border-r border-[#134d36] pr-3">
             2:47PM <span className="block text-[10px] tracking-widest text-[#fd267a]">STUDIO</span>
