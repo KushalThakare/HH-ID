@@ -57,15 +57,14 @@ export default function GeneratorForm({
     <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6 bg-[#062f20] p-6 rounded-xl border border-[#134d36] shadow-xl">
       <div className="border-b border-[#134d36] pb-4">
         <h2 className="text-lg font-mono font-bold text-[#f5e025] uppercase tracking-wider flex items-center gap-2">
-          <Award className="w-5 h-5 text-[#fd267a]" /> Builder Credentials
+          <Award className="w-5 h-5 text-[#f5e025]" /> Builder Credentials
         </h2>
-        <p className="text-xs font-mono text-[#859e92] mt-1">Fill in your information to generate your official HH Goa 2026 pass.</p>
       </div>
 
       {/* Photo Upload Zone */}
       <div className="flex flex-col gap-2">
         <label className="text-xs font-mono font-bold text-[#f5e025] uppercase tracking-widest flex items-center gap-2">
-          <Upload className="w-3.5 h-3.5 text-[#fd267a]" /> Portrait Photo (1:1 Ratio)
+          <Upload className="w-3.5 h-3.5 text-[#f5e025]" /> Portrait Photo
         </label>
         
         <div
@@ -103,7 +102,7 @@ export default function GeneratorForm({
             <div className="flex flex-col items-center gap-2 text-center py-2">
               <Upload className="w-6 h-6 text-[#859e92]" />
               <span className="text-xs font-mono font-bold text-[#f4f0e6]">Drag & Drop Photo Here</span>
-              <span className="text-[11px] font-mono text-[#859e92]">Supports 1:1 ratio JPG, PNG, and iPhone HEIC (Max 5MB)</span>
+              <span className="text-[11px] font-mono text-[#859e92]">Supports JPG, PNG, and iPhone HEIC (Max 5MB)</span>
             </div>
           )}
         </div>
@@ -183,7 +182,6 @@ export default function GeneratorForm({
           type="submit"
           className="w-full py-3.5 px-4 bg-[#f5e025] hover:bg-[#e0cc16] text-[#032116] font-mono font-bold text-sm uppercase tracking-widest rounded flex items-center justify-center gap-2 pattern-border gold-glow transition-all active:scale-[0.99]"
         >
-          <Sparkles className="w-4 h-4 text-[#fd267a]" />
           Generate ID Pass
         </button>
       </div>

@@ -87,7 +87,6 @@ export default function App() {
             <h1 className="font-mono font-bold text-sm tracking-wider uppercase text-[#f4f0e6] flex items-center gap-2">
               HH GOA 2026 <span className="text-[10px] text-[#f5e025] bg-[#062f20] border border-[#f5e025]/40 px-1.5 py-0.5 rounded font-mono">BUILDER PASS</span>
             </h1>
-            <p className="text-[11px] font-mono text-[#859e92] hidden sm:block">Official Identity & ID Generator</p>
           </div>
         </div>
 
@@ -103,18 +102,10 @@ export default function App() {
             href="https://hhgoa.com/"
             target="_blank"
             rel="noreferrer"
-            className="text-xs font-mono text-[#859e92] hover:text-[#f5e025] uppercase tracking-wider hidden sm:block px-2"
-          >
-            Check Hype
-          </a>
-          <a
-            href="https://hhgoa.com/"
-            target="_blank"
-            rel="noreferrer"
             className="text-xs font-mono font-bold text-[#032116] bg-[#f5e025] hover:bg-[#e0cc16] px-4 py-2 flex items-center gap-1.5 transition-all pattern-border shadow-md"
           >
             <Compass className="w-3.5 h-3.5" />
-            APPLY
+            HH Goa
           </a>
         </div>
       </header>
@@ -123,7 +114,7 @@ export default function App() {
       <section className="border-b border-[#134d36] bg-gradient-to-b from-[#052e1e] to-[#032116] py-10 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#062f20] border border-[#f5e025]/40 text-[#f5e025] font-mono text-xs uppercase tracking-widest mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-[#fd267a]" /> #FrameInGoa Challenge
+            #FrameInGoa Challenge
           </div>
           
           {/* Main Display Typography matching HACKER HOUSE GOA image */}
@@ -139,10 +130,6 @@ export default function App() {
               GOA, INDIA &nbsp;·&nbsp; 28 - 31 OCT 2026 &nbsp;·&nbsp; 2:47 PM STUDIO
             </p>
           </div>
-
-          <p className="text-sm font-mono text-[#859e92] max-w-2xl leading-relaxed">
-            Upload your 1:1 portrait photo and enter your builder credentials, then click <span className="text-[#f5e025] font-bold">Generate ID Pass</span> to render your pixel-perfect official event pass.
-          </p>
         </div>
       </section>
 
@@ -171,8 +158,8 @@ export default function App() {
         {/* Right Column: Interactive Canvas Pass Display */}
         <aside className="lg:col-span-5 w-full lg:sticky lg:top-24">
           <div className="bg-[#062f20] p-6 rounded-xl border border-[#134d36] flex flex-col items-center shadow-xl">
-            <h3 className="text-xs font-mono font-bold text-[#f5e025] uppercase tracking-widest mb-4 w-full text-center flex items-center justify-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#fd267a]" /> Official ID Pass
+            <h3 className="text-xs font-mono font-bold text-[#f5e025] uppercase tracking-widest mb-4 w-full text-center">
+              Official ID Pass
             </h3>
 
             <CanvasPreview

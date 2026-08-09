@@ -131,7 +131,7 @@ export default function CanvasPreview({
       ctx.font = '600 22px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('1:1 PORTRAIT PHOTO', photoX + photoW / 2, photoY + photoH / 2);
+      ctx.fillText('PORTRAIT PHOTO', photoX + photoW / 2, photoY + photoH / 2);
     }
     ctx.restore();
 
@@ -223,15 +223,12 @@ export default function CanvasPreview({
       {/* Canvas Display Wrapper or Unsubmitted Placeholder */}
       {!isSubmitted ? (
         <div className="relative w-full max-w-sm aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 border-dashed border-[#134d36] bg-[#032116] flex flex-col items-center justify-center p-6 text-center">
-          <div className="w-16 h-16 rounded-full bg-[#062f20] border border-[#134d36] flex items-center justify-center mb-4 shadow-md">
+          <div className="w-16 h-16 rounded-full bg-[#062f20] border border-[#134d36] flex items-center justify-center mb-2 shadow-md">
             <CreditCard className="w-8 h-8 text-[#f5e025]" />
           </div>
-          <h3 className="font-mono text-sm font-bold text-[#f5e025] uppercase tracking-wider mb-2">
+          <h3 className="font-mono text-sm font-bold text-[#f5e025] uppercase tracking-wider">
             ID Pass Preview
           </h3>
-          <p className="font-mono text-xs text-[#859e92] leading-relaxed max-w-[240px]">
-            Fill out your details on the left and click <span className="text-[#f5e025] font-bold">Generate ID Pass</span> to create your pass.
-          </p>
         </div>
       ) : (
         <div className="relative w-full max-w-sm aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 border-[#134d36] bg-[#032116] group">
