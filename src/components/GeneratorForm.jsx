@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Upload, User, Cpu, Users, Award, Sparkles } from 'lucide-react';
+import { Upload, User, Cpu, Users, Award, Sparkles, RefreshCw } from 'lucide-react';
 
 export default function GeneratorForm({
   name,
@@ -51,6 +51,30 @@ export default function GeneratorForm({
     if (onSubmit) {
       onSubmit(e);
     }
+  };
+
+  const randomTitles = [
+    'Rust Wrangler',
+    'Full-Stack Alchemist',
+    'AI Systems Architect',
+    'Solidity Whisperer',
+    'Protocol Wizard',
+    'Kernel Hacker',
+    'DeFi Tinkerer',
+    'Byte Craftsman',
+    'Zero-Knowledge Engineer',
+    'GPU Accelerator',
+    'Distributed Systems Ninja',
+    'Cyberpunk Artisan',
+    'LLM Trainer',
+    'Chain Architect',
+    'Code Craftsman',
+  ];
+
+  const handleRandomTitle = (e) => {
+    e.preventDefault();
+    const randomIndex = Math.floor(Math.random() * randomTitles.length);
+    setBuilderTitle(randomTitles[randomIndex]);
   };
 
   return (
@@ -161,9 +185,19 @@ export default function GeneratorForm({
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-[11px] font-mono text-[#859e92] uppercase tracking-wider flex items-center gap-1.5">
-              <Award className="w-3.5 h-3.5 text-[#f5e025]" /> Builder Title
-            </label>
+            <div className="flex justify-between items-center">
+              <label className="text-[11px] font-mono text-[#859e92] uppercase tracking-wider flex items-center gap-1.5">
+                <Award className="w-3.5 h-3.5 text-[#f5e025]" /> Builder Title
+              </label>
+              <button
+                type="button"
+                onClick={handleRandomTitle}
+                className="text-[10px] font-mono text-[#f5e025] hover:underline flex items-center gap-1 opacity-80 hover:opacity-100 transition-opacity"
+                title="Generate random builder title"
+              >
+                <RefreshCw className="w-3 h-3 text-[#fd267a]" /> Auto-Generate
+              </button>
+            </div>
             <input
               type="text"
               value={builderTitle}

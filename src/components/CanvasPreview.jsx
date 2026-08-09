@@ -247,9 +247,18 @@ export default function CanvasPreview({
       console.log('Share handling error:', err);
     }
 
-    // 3. Desktop: Open x.com tweet composer in new tab with prefilled caption & hashtags
+    // 3. Desktop: Open x.com tweet composer in centered popup dialog window
     const xUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(caption)}`;
-    window.open(xUrl, '_blank', 'noopener,noreferrer');
+    const width = 600;
+    const height = 500;
+    const left = Math.max(0, Math.round((window.screen.width - width) / 2));
+    const top = Math.max(0, Math.round((window.screen.height - height) / 2));
+    
+    window.open(
+      xUrl,
+      'twitter-share-dialog',
+      `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+    );
   };
 
   return (
