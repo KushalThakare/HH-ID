@@ -222,23 +222,23 @@ export default function CanvasPreview({
     <div className="w-full flex flex-col items-center gap-6">
       {/* Canvas Display Wrapper or Unsubmitted Placeholder */}
       {!isSubmitted ? (
-        <div className="relative w-full max-w-sm aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 border-dashed border-[#2a2a26] bg-[#141412] flex flex-col items-center justify-center p-6 text-center">
-          <div className="w-16 h-16 rounded-full bg-[#1c1c18] border border-[#2a2a26] flex items-center justify-center mb-4">
-            <CreditCard className="w-8 h-8 text-[#8a8575]" />
+        <div className="relative w-full max-w-sm aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 border-dashed border-[#134d36] bg-[#032116] flex flex-col items-center justify-center p-6 text-center">
+          <div className="w-16 h-16 rounded-full bg-[#062f20] border border-[#134d36] flex items-center justify-center mb-4 shadow-md">
+            <CreditCard className="w-8 h-8 text-[#f5e025]" />
           </div>
-          <h3 className="font-mono text-sm font-bold text-[#ede8d5] uppercase tracking-wider mb-2">
+          <h3 className="font-mono text-sm font-bold text-[#f5e025] uppercase tracking-wider mb-2">
             ID Pass Preview
           </h3>
-          <p className="font-mono text-xs text-[#8a8575] leading-relaxed max-w-[240px]">
-            Fill out your details on the left and click <span className="text-[#d4a017] font-bold">Generate ID Pass</span> to create your pass.
+          <p className="font-mono text-xs text-[#859e92] leading-relaxed max-w-[240px]">
+            Fill out your details on the left and click <span className="text-[#f5e025] font-bold">Generate ID Pass</span> to create your pass.
           </p>
         </div>
       ) : (
-        <div className="relative w-full max-w-sm aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border border-[#2a2a26] bg-[#0a0a08] group">
+        <div className="relative w-full max-w-sm aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border-2 border-[#134d36] bg-[#032116] group">
           {!assetsLoaded && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a08] gap-3 z-20">
-              <RefreshCw className="w-7 h-7 text-[#d4a017] animate-spin" />
-              <span className="font-mono text-xs text-[#8a8575] tracking-widest uppercase">Loading Card Templates...</span>
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#032116] gap-3 z-20">
+              <RefreshCw className="w-7 h-7 text-[#f5e025] animate-spin" />
+              <span className="font-mono text-xs text-[#859e92] tracking-widest uppercase">Loading Card Templates...</span>
             </div>
           )}
 
@@ -256,16 +256,16 @@ export default function CanvasPreview({
             type="button"
             onClick={handleDownload}
             disabled={!assetsLoaded}
-            className="w-full py-3 px-4 bg-[#d4a017] hover:bg-[#c29112] text-[#0a0a08] font-mono font-bold text-xs uppercase tracking-widest rounded flex items-center justify-center gap-2 transition-all active:scale-[0.98] disabled:opacity-50"
+            className="w-full py-3.5 px-4 bg-[#f5e025] hover:bg-[#e0cc16] text-[#032116] font-mono font-bold text-xs uppercase tracking-widest rounded flex items-center justify-center gap-2 pattern-border gold-glow transition-all active:scale-[0.98] disabled:opacity-50"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4 text-[#032116]" />
             Download ID Pass (PNG)
           </button>
 
           <button
             type="button"
             onClick={handleShareToX}
-            className="w-full py-2.5 px-4 bg-[#1a1a16] hover:bg-[#252520] border border-[#2a2a26] text-[#ede8d5] font-mono font-bold text-[11px] uppercase tracking-wider rounded flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
+            className="w-full py-2.5 px-4 bg-[#062f20] hover:bg-[#093a28] border border-[#134d36] text-[#f4f0e6] font-mono font-bold text-[11px] uppercase tracking-wider rounded flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
           >
             <Share2 className="w-3.5 h-3.5 text-[#fd267a]" />
             Share to X

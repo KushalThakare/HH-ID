@@ -54,21 +54,23 @@ export default function GeneratorForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6 bg-[#111110] p-6 rounded-xl border border-[#2a2a26]">
-      <div className="border-b border-[#2a2a26] pb-4">
-        <h2 className="text-lg font-mono font-bold text-[#ede8d5] uppercase tracking-wider">Builder Information</h2>
-        <p className="text-xs font-mono text-[#8a8575] mt-1">Customize your official HH Goa 2026 ID pass.</p>
+    <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6 bg-[#062f20] p-6 rounded-xl border border-[#134d36] shadow-xl">
+      <div className="border-b border-[#134d36] pb-4">
+        <h2 className="text-lg font-mono font-bold text-[#f5e025] uppercase tracking-wider flex items-center gap-2">
+          <Award className="w-5 h-5 text-[#fd267a]" /> Builder Credentials
+        </h2>
+        <p className="text-xs font-mono text-[#859e92] mt-1">Fill in your information to generate your official HH Goa 2026 pass.</p>
       </div>
 
       {/* Photo Upload Zone */}
       <div className="flex flex-col gap-2">
-        <label className="text-xs font-mono font-bold text-[#d4a017] uppercase tracking-widest flex items-center gap-2">
-          <Upload className="w-3.5 h-3.5" /> Portrait Photo (1:1 Ratio)
+        <label className="text-xs font-mono font-bold text-[#f5e025] uppercase tracking-widest flex items-center gap-2">
+          <Upload className="w-3.5 h-3.5 text-[#fd267a]" /> Portrait Photo (1:1 Ratio)
         </label>
         
         <div
           className={`relative border-2 border-dashed rounded-lg p-5 flex flex-col items-center justify-center cursor-pointer transition-all ${
-            dragActive ? 'border-[#d4a017] bg-[#d4a017]/10' : 'border-[#2a2a26] hover:border-[#8a8575] bg-[#161614]'
+            dragActive ? 'border-[#f5e025] bg-[#094730]' : 'border-[#134d36] hover:border-[#859e92] bg-[#032116]'
           }`}
           onDragEnter={handleDrag}
           onDragOver={handleDrag}
@@ -86,22 +88,22 @@ export default function GeneratorForm({
 
           {isConverting ? (
             <div className="flex flex-col items-center gap-2 py-2">
-              <div className="w-6 h-6 border-2 border-[#d4a017] border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-xs font-mono text-[#8a8575]">Processing image...</p>
+              <div className="w-6 h-6 border-2 border-[#f5e025] border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-xs font-mono text-[#859e92]">Processing image...</p>
             </div>
           ) : photoPreview ? (
             <div className="flex items-center gap-4">
-              <img src={photoPreview} alt="Uploaded avatar preview" className="w-16 h-16 rounded-md object-cover border border-[#d4a017] aspect-square" />
+              <img src={photoPreview} alt="Uploaded avatar preview" className="w-16 h-16 rounded-md object-cover border-2 border-[#f5e025] aspect-square shadow-md" />
               <div className="flex flex-col">
-                <span className="text-xs font-mono text-[#ede8d5] font-bold">Photo Selected</span>
-                <span className="text-[11px] font-mono text-[#8a8575]">Click or drag to replace photo</span>
+                <span className="text-xs font-mono text-[#f4f0e6] font-bold">Photo Selected</span>
+                <span className="text-[11px] font-mono text-[#859e92]">Click or drag to replace photo</span>
               </div>
             </div>
           ) : (
             <div className="flex flex-col items-center gap-2 text-center py-2">
-              <Upload className="w-6 h-6 text-[#8a8575]" />
-              <span className="text-xs font-mono font-bold text-[#ede8d5]">Drag & Drop Photo Here</span>
-              <span className="text-[11px] font-mono text-[#8a8575]">Supports 1:1 ratio JPG, PNG, and iPhone HEIC (Max 5MB)</span>
+              <Upload className="w-6 h-6 text-[#859e92]" />
+              <span className="text-xs font-mono font-bold text-[#f4f0e6]">Drag & Drop Photo Here</span>
+              <span className="text-[11px] font-mono text-[#859e92]">Supports 1:1 ratio JPG, PNG, and iPhone HEIC (Max 5MB)</span>
             </div>
           )}
         </div>
@@ -110,13 +112,13 @@ export default function GeneratorForm({
 
       {/* Card Details Inputs */}
       <div className="flex flex-col gap-4 pt-2">
-        <span className="text-xs font-mono font-bold text-[#d4a017] uppercase tracking-widest">Card Details</span>
+        <span className="text-xs font-mono font-bold text-[#f5e025] uppercase tracking-widest">Pass Information</span>
         
         {/* Full Name & Team Name */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-[11px] font-mono text-[#8a8575] uppercase tracking-wider flex items-center gap-1.5">
-              <User className="w-3.5 h-3.5" /> Full Name
+            <label className="text-[11px] font-mono text-[#859e92] uppercase tracking-wider flex items-center gap-1.5">
+              <User className="w-3.5 h-3.5 text-[#f5e025]" /> Full Name
             </label>
             <input
               type="text"
@@ -124,13 +126,13 @@ export default function GeneratorForm({
               onChange={(e) => setName(e.target.value.slice(0, 30))}
               placeholder="Your name here"
               maxLength={30}
-              className="bg-[#161614] border border-[#2a2a26] rounded px-3 py-2 text-xs font-mono text-[#ede8d5] placeholder-[#5a5545] focus:outline-none focus:border-[#d4a017]"
+              className="bg-[#032116] border border-[#134d36] rounded px-3 py-2 text-xs font-mono text-[#f4f0e6] placeholder-[#4f6b5f] focus:outline-none focus:border-[#f5e025] input-glow"
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-[11px] font-mono text-[#8a8575] uppercase tracking-wider flex items-center gap-1.5">
-              <Users className="w-3.5 h-3.5" /> Team Name
+            <label className="text-[11px] font-mono text-[#859e92] uppercase tracking-wider flex items-center gap-1.5">
+              <Users className="w-3.5 h-3.5 text-[#f5e025]" /> Team Name
             </label>
             <input
               type="text"
@@ -138,7 +140,7 @@ export default function GeneratorForm({
               onChange={(e) => setTeamName(e.target.value.slice(0, 25))}
               placeholder="Your team name here"
               maxLength={25}
-              className="bg-[#161614] border border-[#2a2a26] rounded px-3 py-2 text-xs font-mono text-[#ede8d5] placeholder-[#5a5545] focus:outline-none focus:border-[#d4a017]"
+              className="bg-[#032116] border border-[#134d36] rounded px-3 py-2 text-xs font-mono text-[#f4f0e6] placeholder-[#4f6b5f] focus:outline-none focus:border-[#f5e025] input-glow"
             />
           </div>
         </div>
@@ -146,8 +148,8 @@ export default function GeneratorForm({
         {/* Role & Builder Title */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-[11px] font-mono text-[#8a8575] uppercase tracking-wider flex items-center gap-1.5">
-              <Cpu className="w-3.5 h-3.5" /> Stack / Role
+            <label className="text-[11px] font-mono text-[#859e92] uppercase tracking-wider flex items-center gap-1.5">
+              <Cpu className="w-3.5 h-3.5 text-[#f5e025]" /> Stack / Role
             </label>
             <input
               type="text"
@@ -155,13 +157,13 @@ export default function GeneratorForm({
               onChange={(e) => setRole(e.target.value.slice(0, 30))}
               placeholder="Your stack / role here"
               maxLength={30}
-              className="bg-[#161614] border border-[#2a2a26] rounded px-3 py-2 text-xs font-mono text-[#ede8d5] placeholder-[#5a5545] focus:outline-none focus:border-[#d4a017]"
+              className="bg-[#032116] border border-[#134d36] rounded px-3 py-2 text-xs font-mono text-[#f4f0e6] placeholder-[#4f6b5f] focus:outline-none focus:border-[#f5e025] input-glow"
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-[11px] font-mono text-[#8a8575] uppercase tracking-wider flex items-center gap-1.5">
-              <Award className="w-3.5 h-3.5" /> Builder Title
+            <label className="text-[11px] font-mono text-[#859e92] uppercase tracking-wider flex items-center gap-1.5">
+              <Award className="w-3.5 h-3.5 text-[#f5e025]" /> Builder Title
             </label>
             <input
               type="text"
@@ -169,19 +171,19 @@ export default function GeneratorForm({
               onChange={(e) => setBuilderTitle(e.target.value.slice(0, 30))}
               placeholder="Your builder title here"
               maxLength={30}
-              className="bg-[#161614] border border-[#2a2a26] rounded px-3 py-2 text-xs font-mono text-[#ede8d5] placeholder-[#5a5545] focus:outline-none focus:border-[#d4a017]"
+              className="bg-[#032116] border border-[#134d36] rounded px-3 py-2 text-xs font-mono text-[#f4f0e6] placeholder-[#4f6b5f] focus:outline-none focus:border-[#f5e025] input-glow"
             />
           </div>
         </div>
       </div>
 
       {/* Submit Button */}
-      <div className="pt-4 border-t border-[#2a2a26]">
+      <div className="pt-4 border-t border-[#134d36]">
         <button
           type="submit"
-          className="w-full py-3.5 px-4 bg-[#d4a017] hover:bg-[#c29112] text-[#0a0a08] font-mono font-bold text-sm uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-[#d4a017]/20 transition-all active:scale-[0.99]"
+          className="w-full py-3.5 px-4 bg-[#f5e025] hover:bg-[#e0cc16] text-[#032116] font-mono font-bold text-sm uppercase tracking-widest rounded flex items-center justify-center gap-2 pattern-border gold-glow transition-all active:scale-[0.99]"
         >
-          <Sparkles className="w-4 h-4" />
+          <Sparkles className="w-4 h-4 text-[#fd267a]" />
           Generate ID Pass
         </button>
       </div>
