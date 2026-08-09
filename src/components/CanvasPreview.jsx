@@ -218,21 +218,31 @@ export default function CanvasPreview({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const filename = `hh-goa-2026-pass-${(name || 'builder').toLowerCase().replace(/\s+/g, '-')}.png`;
     const caption = `Just minted my official HH Goa 2026 Builder ID Pass! Ready to lock in and ship in paradise. 🌊🌴\n\nGenerate yours at hhgoa.com! #FrameInGoa #HackerHouseGoa`;
 
-    // 1. Copy pass PNG image directly to clipboard for instant Ctrl+V attachment on X
+    // 1. Auto-download the pass image to user's device so it's ready in Downloads
+    const dataUrl = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = dataUrl;
+    link.click();
+
+    // 2. Also copy pass PNG image directly to Clipboard for instant Ctrl+V attachment
     try {
       const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
       if (blob && navigator.clipboard && window.ClipboardItem) {
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-        setShareToast('Pass image copied to clipboard! Press Ctrl+V to attach it in X.');
-        setTimeout(() => setShareToast(''), 5000);
       }
     } catch (err) {
       console.log('Clipboard copy skipped:', err);
     }
 
-    // 2. Directly open x.com tweet composer in new tab with caption & hashtags
+    // 3. Show user toast guidance banner
+    setShareToast('Pass downloaded & copied! Press Ctrl+V or click 🖼️ to attach on X.');
+    setTimeout(() => setShareToast(''), 6000);
+
+    // 4. Directly open x.com tweet composer in new tab with caption & hashtags
     const xUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(caption)}`;
     window.open(xUrl, '_blank', 'noopener,noreferrer');
   };
