@@ -24,9 +24,12 @@ export default function CanvasPreview({
   // Load custom template backgrounds from public/assets/elements/
   useEffect(() => {
     let active = true;
+    const loadFrontBg = () =>
+      loadImage('/assets/elements/template_front.png')
+        .catch(() => loadImage('/assets/elements/template_front.jpg'));
+
     Promise.all([
-      loadImage('/assets/elements/template_front.jpg')
-        .then((img) => { if (active) frontBgRef.current = img; }),
+      loadFrontBg().then((img) => { if (active) frontBgRef.current = img; }),
       loadImage('/assets/elements/ticket_overlay.png')
         .then((img) => { if (active) ticketOverlayRef.current = img; })
     ])
