@@ -4,6 +4,7 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -50,15 +51,13 @@ body::before {
 /* Ethnic Patterned Woven Border Trim (like the APPLY button in reference image) */
 .pattern-border {
   border: 3px solid transparent;
-  border-image: repeating-linear-gradient(
-    45deg,
-    #fd267a,
-    #fd267a 6px,
-    #f5e025 6px,
-    #f5e025 12px,
-    #053825 12px,
-    #053825 18px
-  ) 1;
+  border-image: repeating-linear-gradient(45deg,
+      #fd267a,
+      #fd267a 6px,
+      #f5e025 6px,
+      #f5e025 12px,
+      #053825 12px,
+      #053825 18px) 1;
 }
 
 /* Hot Pink Goa Hindi Badge Glow */
@@ -78,8 +77,11 @@ body::before {
 
 /* Spinner Loader animation */
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 .animate-spin-custom {
   animation: spin 1s infinite linear;
 }
@@ -91,6 +93,7 @@ body::before {
   border: 1px dashed rgba(133, 158, 146, 0.3);
   transition: border-color 0.2s ease, background 0.2s ease;
 }
+
 .upload-zone:hover {
   background: rgba(9, 58, 40, 0.9);
   border-color: rgba(245, 224, 37, 0.6);
@@ -110,9 +113,11 @@ body::before {
   cursor: pointer;
   transition: opacity 0.15s ease, transform 0.1s ease;
 }
+
 .btn-primary:hover {
   opacity: 0.9;
 }
+
 .btn-primary:active {
   transform: scale(0.98);
 }
@@ -139,4 +144,3 @@ body::before {
   border-top: 1px solid rgba(27, 97, 73, 0.3);
   margin: 0;
 }
-

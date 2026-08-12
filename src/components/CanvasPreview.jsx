@@ -99,7 +99,7 @@ export default function CanvasPreview({
     };
 
     // ── FRONT ID CARD RENDERING ──
-    
+
     // 1. Draw Base Template Front Background
     if (frontBgRef.current) {
       ctx.drawImage(frontBgRef.current, 0, 0, 1000, 1500);

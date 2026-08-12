@@ -90,11 +90,10 @@ export default function GeneratorForm({
         <label className="text-xs font-mono font-bold text-[#f5e025] uppercase tracking-widest flex items-center gap-2">
           <Upload className="w-3.5 h-3.5 text-[#f5e025]" /> Portrait Photo
         </label>
-        
+
         <div
-          className={`relative border-2 border-dashed rounded-lg p-5 flex flex-col items-center justify-center cursor-pointer transition-all ${
-            dragActive ? 'border-[#f5e025] bg-[#094730]' : 'border-[#134d36] hover:border-[#859e92] bg-[#032116]'
-          }`}
+          className={`relative border-2 border-dashed rounded-lg p-5 flex flex-col items-center justify-center cursor-pointer transition-all ${dragActive ? 'border-[#f5e025] bg-[#094730]' : 'border-[#134d36] hover:border-[#859e92] bg-[#032116]'
+            }`}
           onDragEnter={handleDrag}
           onDragOver={handleDrag}
           onDragLeave={handleDrag}
@@ -136,7 +135,7 @@ export default function GeneratorForm({
       {/* Card Details Inputs */}
       <div className="flex flex-col gap-4 pt-2">
         <span className="text-xs font-mono font-bold text-[#f5e025] uppercase tracking-widest">Pass Information</span>
-        
+
         {/* Full Name & Team Name */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
