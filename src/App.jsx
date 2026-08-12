@@ -129,21 +129,21 @@ export default function App() {
         <div className="fixed inset-0 z-50 bg-[#032116]/95 backdrop-blur-lg flex flex-col items-center justify-center p-6 transition-all duration-300 pointer-events-none overflow-hidden">
           {/* Laser Scan Line Sweep */}
           <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#f5e025] to-transparent animate-laser-sweep opacity-80"></div>
-          
+
           <div className="relative flex flex-col items-center gap-3 text-center animate-glitch-pop">
             <div className="flex items-center gap-2 text-[#f5e025] font-mono text-xs tracking-widest uppercase border border-[#f5e025]/50 px-3 py-1 rounded bg-[#062f20]">
               <Terminal className="w-4 h-4 text-[#fd267a] animate-spin-custom" />
               2:47PM STUDIO // LAUNCHING
             </div>
-            
+
             <h1 className="text-4xl sm:text-6xl font-serif font-black tracking-tight text-[#f5e025] uppercase flex items-center gap-3">
-              HACKER 
+              HACKER
               <span className="bg-[#fd267a] text-[#f5e025] font-sans text-2xl sm:text-3xl px-3 py-0.5 rounded shadow-xl transform -rotate-3 border border-[#f5e025]/60 animate-bounce">
                 गोवा
-              </span> 
+              </span>
               HOUSE
             </h1>
-            
+
             <div className="w-56 h-1.5 bg-[#062f20] rounded-full overflow-hidden border border-[#134d36] mt-1">
               <div className="w-full h-full bg-gradient-to-r from-[#fd267a] to-[#f5e025] animate-flash-pulse"></div>
             </div>
@@ -190,14 +190,14 @@ export default function App() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#062f20]/80 border border-[#f5e025]/40 text-[#f5e025] font-mono text-xs uppercase tracking-widest mb-1 shadow-md">
             #FrameInGoa Challenge
           </div>
-          
+
           {/* Main Display Typography matching HACKER HOUSE GOA image */}
           <div className="relative my-2 select-none">
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif font-extrabold tracking-tight text-[#f5e025] flex items-center justify-center gap-2 sm:gap-4 uppercase drop-shadow-md">
-              HACKER 
+              HACKER
               <span className="inline-block bg-[#fd267a] text-[#f5e025] font-sans font-black text-xl sm:text-3xl px-2.5 py-0.5 rounded shadow-lg transform -rotate-3 border border-[#f5e025]/40">
                 गोवा
-              </span> 
+              </span>
               HOUSE
             </h2>
             <p className="font-mono text-xs sm:text-sm text-[#f5e025] tracking-widest uppercase mt-2">
